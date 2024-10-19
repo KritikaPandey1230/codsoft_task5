@@ -10,7 +10,7 @@ public class CourseRegistrationSystem {
     public CourseRegistrationSystem() {
         courses = new ArrayList<>();
         students = new LinkedList<>();
-        sc = new Scanner(System.in);  // Initialize the scanner
+        sc = new Scanner(System.in);  
     }
 
     public void addCourse(Course course) {
@@ -47,7 +47,7 @@ public class CourseRegistrationSystem {
         return null;
     }
 
-    // Helper method to get a valid student
+    
     private Student getValidStudent() {
         System.out.print("Enter Student ID: ");
         String studentID = sc.nextLine();
@@ -62,7 +62,7 @@ public class CourseRegistrationSystem {
 
     public void studentRegistration() {
         Student student = getValidStudent();
-        if (student == null) return;  // Exit if student not found
+        if (student == null) return;  
 
         displayAvailableCourses();
         System.out.print("Enter Course Code to Register: ");
@@ -83,7 +83,7 @@ public class CourseRegistrationSystem {
 
     public void studentCourseRemoval() {
         Student student = getValidStudent();
-        if (student == null) return;  // Exit if student not found
+        if (student == null) return;  
 
         student.displayRegisteredCourses();
         System.out.print("Enter Course Code to Drop: ");
@@ -105,23 +105,23 @@ public class CourseRegistrationSystem {
     public static void main(String[] args) {
         CourseRegistrationSystem system = new CourseRegistrationSystem();
 
-        // Adding some courses
+      
         Course course1 = new Course("CS101", "Intro to Computer Science", "Basics of CS", 30);
         Course course2 = new Course("CS102", "Data Structures", "Learn Data Structures", 25);
         system.addCourse(course1);
         system.addCourse(course2);
 
-        // Adding some students
+    
         Student student1 = new Student("1", "Shrinika");
         Student student2 = new Student("2", "Kashvi");
         system.addStudent(student1);
         system.addStudent(student2);
 
-        // Simulating the registration and removal process
+        
         system.studentRegistration();
         system.studentCourseRemoval();
 
-        system.sc.close();  // Close the scanner to avoid resource leak
+        system.sc.close();  
     }
 }
 
